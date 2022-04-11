@@ -4,7 +4,7 @@ function App() {
   const [count, setCount] = useState(0);
   const [kossie, setKossie] = useState(0);
   useEffect(() => {
-    console.log(count);
+    // console.log(count);
   }, [count, kossie]);
 
   useEffect(() => {
