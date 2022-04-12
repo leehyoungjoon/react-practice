@@ -1,23 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [kossie, setKossie] = useState(0);
-  useEffect(() => {
-    console.log(count);
-  }, [count, kossie]);
-
-  useEffect(() => {
-    console.log("first rendering");
-  }, []);
-  const increment = () => {
-    setCount(count + 1);
+  const [username, setusername] = useState("");
+  const [password, setpassword] = useState("");
+  const onSubmit = (event) => {
+    event.PreventDefault();
+    console.log(username, password);
   };
+
   return (
     <div className="App">
-      <h1>can do react</h1>
-      <button onClick={increment}>Click</button>
-      <button onClick={() => setKossie(kossie + 1)}>Click1</button>
+      <form onSubmit={onSubmit}>
+        <input
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setusername(e.target.value)}
+        />
+        <br />
+        <input
+          placeholder="Psssword"
+          value={password}
+          onChange={(e) => setpassword(e.target.value)}
+        />
+        <br />
+        <button onClick={onSubmit}>Login</button>
+      </form>
     </div>
   );
 }
